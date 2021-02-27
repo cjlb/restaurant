@@ -1,0 +1,31 @@
+# Project: G6067HeadOffice
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../G6067HeadOffice/G6067HeadOffice.o ../G6067HeadOffice/main.o
+LINKOBJ  = ../G6067HeadOffice/G6067HeadOffice.o ../G6067HeadOffice/main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc G6067Models.a
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"../G6067Models"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"../G6067Models"
+BIN      = G6067HeadOffice.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../G6067HeadOffice/G6067HeadOffice.o: ../G6067HeadOffice/G6067HeadOffice.cpp
+	$(CPP) -c ../G6067HeadOffice/G6067HeadOffice.cpp -o ../G6067HeadOffice/G6067HeadOffice.o $(CXXFLAGS)
+
+../G6067HeadOffice/main.o: ../G6067HeadOffice/main.cpp
+	$(CPP) -c ../G6067HeadOffice/main.cpp -o ../G6067HeadOffice/main.o $(CXXFLAGS)
